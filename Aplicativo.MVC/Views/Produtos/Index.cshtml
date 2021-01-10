@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/forms")
+}
+
+
+<h2>Produtos</h2>
+
+
+<p>
+    @Html.ActionLink("Cadastrar", "Cadastrar", null, new { @class = "item-modal" })
+</p>
+
+<div id="lista">
+    @Html.Action("Listar")
+</div>
+
+<div id="acao">
+</div>

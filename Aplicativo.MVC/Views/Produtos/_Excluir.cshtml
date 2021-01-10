@@ -1,0 +1,42 @@
+﻿@model Aplicativo.Dominio.Produto
+
+@{
+    ViewBag.TituloDoModal = "Excluir Produto";
+    Layout = "~/Views/Shared/_Modal.cshtml";
+}
+
+@section ModalCorpo
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Valor)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm("ConfirmarExcluir", "Produtos", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Codigo)
+        }
+    </div>
+}
+
+@section ModalControles
+{
+    <button class="btn btn-primary">Excluir</button>
+}

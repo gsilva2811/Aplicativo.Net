@@ -1,0 +1,25 @@
+﻿
+@{
+    var btnCancelar = ViewBag.BtnCancelar ?? "Cancelar";
+}
+<div id="modal@(ViewBag.IdModal)" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="modalConfirmarTitulo">@ViewBag.TituloDoModal</h4>
+                @if (!string.IsNullOrEmpty(ViewBag.SubTituloDoModal))
+                {
+                    <h5>@ViewBag.SubTituloDoModal</h5>
+                }
+            </div>
+            <div class="modal-body">
+                @RenderSection("ModalCorpo")
+            </div>
+            <div class="modal-footer">
+                @RenderSection("ModalControles", false)
+                <button class="btn" data-dismiss="modal" aria-hidden="true">@btnCancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
